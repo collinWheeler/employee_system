@@ -4,12 +4,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.wheeler.employee.ability.Ability;
 
@@ -17,11 +20,15 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(uniqueConstraints={
+	    @UniqueConstraint(columnNames = {"name", "employee_id"})
+	})
 public class Employee {
 	@Id
 	@GeneratedValue
 	private long id;
 	private String name;
+	@Column(name="employee_id")
 	private String employeeId;
 	private String title;
 	
