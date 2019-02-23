@@ -12,6 +12,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.wheeler.employee.ability.Ability;
+import com.wheeler.employee.ability.AbilityDAO;
 import com.wheeler.employee.employee.Employee;
 import com.wheeler.employee.employee.EmployeeDAO;
 
@@ -20,30 +21,42 @@ import com.wheeler.employee.employee.EmployeeDAO;
 public class EmployeeApplicationTests {
 	
 	@Autowired
-	EmployeeDAO dao;
+	EmployeeDAO employeeDAO;
+	
+	@Autowired
+	AbilityDAO abilityDAO;
 
-	@Test
+	/*@Test
 	@Transactional
-	public void daoTest() {
+	@Rollback(true)
+	public void employeeDaoTest() {
 		Employee employee=new Employee();
 		Employee newEmployee;
 		employee.setName("Ray Arnold");
 		employee.setTitle("Architect");
 		employee.setEmployeeId("99-4321-9245");
-		Ability ability1=new Ability("UNIX DEBUGGING");
-		employee.addAbility(ability1);
-		newEmployee=dao.create(employee);
+		newEmployee=employeeDAO.create(employee);
 		long id=newEmployee.getId();
 		assertEquals(employee,newEmployee);
 		
-		Employee titleEmployee=dao.get(id);
+		Employee titleEmployee=employeeDAO.get(id);
 		titleEmployee.setTitle("Chief Architect");
-		newEmployee=dao.update(titleEmployee.getId(),titleEmployee);
+		newEmployee=employeeDAO.update(titleEmployee.getId(),titleEmployee);
 		assertEquals(titleEmployee,newEmployee);
 		
-		dao.delete(id);
-		assertEquals(false,dao.exists(id));
-	}
+		employeeDAO.delete(id);
+		assertEquals(false,employeeDAO.exists(id));
+	}*/
+	
+	/*
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void abilityDaoTest() {
+		Ability ability1=new Ability("UNIX DEBUGGING");
+		abilityDAO.create(ability1);
+		assertEquals(true,abilityDAO.exists(ability1));
+	}*/
 	
 	/*@Test
 	public void employeeAbilityTest() {

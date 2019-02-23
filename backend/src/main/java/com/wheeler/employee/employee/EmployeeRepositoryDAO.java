@@ -12,7 +12,7 @@ public class EmployeeRepositoryDAO implements EmployeeDAO{
 	
 	@Override
 	public Employee create(Employee employee) {
-		return repository.save(employee);
+		return repository.saveAndFlush(employee);
 	}
 
 	@Override
