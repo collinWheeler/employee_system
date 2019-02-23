@@ -26,6 +26,10 @@ public class EmployeeApplicationTests {
 	@Autowired
 	AbilityDAO abilityDAO;
 
+	@Test
+	public void basicTest() {
+		
+	}
 	/*@Test
 	@Transactional
 	@Rollback(true)

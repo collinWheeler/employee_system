@@ -11,6 +11,7 @@
 	<groupId>com.wheeler</groupId>
 	<artifactId>employee</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>employee</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -54,6 +55,7 @@
 	</repositories>
 
 	<build>
+	<finalName>personnel</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
