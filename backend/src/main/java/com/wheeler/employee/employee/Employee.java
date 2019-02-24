@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.wheeler.employee.ability.Ability;
 
@@ -29,8 +31,10 @@ public class Employee {
 	@Id
 	@GeneratedValue
 	private long id;
+	@Length(max=100)
 	private String name;
 	@Column(name="employee_id")
+	@Length(max=20)
 	private String employeeId;
 	private String title;
 	
