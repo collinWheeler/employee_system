@@ -8,11 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.wheeler.employee.employee.Employee;
+import com.wheeler.employee.util.EntityIdResolver;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Ability {
 	@Id
@@ -28,4 +29,26 @@ public class Ability {
 	public Ability() {}
 	
 	public Ability(String description) {this.description=description;}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<Employee> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(Set<Employee> employees) {
+		this.employees = employees;
+	}
+	
+	
 }
