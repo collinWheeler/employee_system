@@ -12,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.wheeler.employee.employee.Employee;
-import com.wheeler.employee.util.EntityIdResolver;
 
 @Entity
 public class Ability {

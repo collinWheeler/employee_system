@@ -42,9 +42,13 @@
 		<dependency>
 	        <groupId>org.projectlombok</groupId>
 	        <artifactId>lombok</artifactId>
-	        <version>RELEASE</version>
+	        <version>1.16.16</version>
    			<scope>provided</scope>
     	</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<repositories>
