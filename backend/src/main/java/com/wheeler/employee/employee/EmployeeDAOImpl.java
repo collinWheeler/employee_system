@@ -2,11 +2,11 @@ package com.wheeler.employee.employee;
 
 import java.util.List;
 
-public class EmployeeRepositoryDAO implements EmployeeDAO{
+public class EmployeeDAOImpl implements EmployeeDAO{
 
 	private EmployeeRepository repository;
 	
-	public EmployeeRepositoryDAO(EmployeeRepository repository){
+	public EmployeeDAOImpl(EmployeeRepository repository){
 		this.repository=repository;
 	}
 	

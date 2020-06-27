@@ -2,11 +2,11 @@ package com.wheeler.employee.ability;
 
 import java.util.List;
 
-public class AbilityRepositoryDAO implements AbilityDAO {
+public class AbilityDAOImpl implements AbilityDAO {
 
 	private AbilityRepository repository;
 	
-	public AbilityRepositoryDAO(AbilityRepository repository) {
+	public AbilityDAOImpl(AbilityRepository repository) {
 		this.repository=repository;
 	}
 	
