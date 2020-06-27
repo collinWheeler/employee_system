@@ -1,6 +1,8 @@
-package com.wheeler.employee.employee;
+package com.wheeler.employee.daos;
 
 import java.util.List;
+
+import com.wheeler.employee.models.Employee;
 
 public interface EmployeeDAO {
 	public Employee create(Employee employee);

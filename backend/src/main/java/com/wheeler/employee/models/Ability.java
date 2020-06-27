@@ -1,4 +1,4 @@
-package com.wheeler.employee.ability;
+package com.wheeler.employee.models;
 
 import java.util.Set;
 
@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.wheeler.employee.employee.Employee;
+import com.wheeler.employee.models.Employee;
 
 @Entity
 public class Ability {

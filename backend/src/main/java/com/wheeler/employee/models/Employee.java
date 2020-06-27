@@ -1,4 +1,4 @@
-package com.wheeler.employee.employee;
+package com.wheeler.employee.models;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.wheeler.employee.ability.Ability;
+import com.wheeler.employee.models.Ability;
 
 
 @Entity

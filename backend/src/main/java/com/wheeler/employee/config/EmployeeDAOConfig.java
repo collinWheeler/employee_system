@@ -3,12 +3,12 @@ package com.wheeler.employee.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.wheeler.employee.ability.AbilityRepository;
-import com.wheeler.employee.ability.AbilityDAOImpl;
-import com.wheeler.employee.ability.AbilityDAO;
-import com.wheeler.employee.employee.EmployeeRepository;
-import com.wheeler.employee.employee.EmployeeDAOImpl;
-import com.wheeler.employee.employee.EmployeeDAO;
+import com.wheeler.employee.daos.AbilityDAO;
+import com.wheeler.employee.daos.AbilityDAOImpl;
+import com.wheeler.employee.daos.EmployeeDAO;
+import com.wheeler.employee.daos.EmployeeDAOImpl;
+import com.wheeler.employee.repositories.AbilityRepository;
+import com.wheeler.employee.repositories.EmployeeRepository;
 
 @Configuration
 public class EmployeeDAOConfig {

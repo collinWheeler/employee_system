@@ -11,10 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.wheeler.employee.ability.Ability;
-import com.wheeler.employee.ability.AbilityDAO;
-import com.wheeler.employee.employee.Employee;
-import com.wheeler.employee.employee.EmployeeDAO;
+import com.wheeler.employee.daos.AbilityDAO;
+import com.wheeler.employee.daos.EmployeeDAO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

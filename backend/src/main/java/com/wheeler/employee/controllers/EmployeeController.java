@@ -1,4 +1,4 @@
-package com.wheeler.employee.employee;
+package com.wheeler.employee.controllers;
 
 import java.util.List;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.wheeler.employee.daos.EmployeeDAO;
+import com.wheeler.employee.models.Employee;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,6 +1,8 @@
-package com.wheeler.employee.ability;
+package com.wheeler.employee.daos;
 
 import java.util.List;
+
+import com.wheeler.employee.models.Ability;
 
 public interface AbilityDAO {
 	public Ability get(long id);

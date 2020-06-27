@@ -1,6 +1,9 @@
-package com.wheeler.employee.ability;
+package com.wheeler.employee.daos;
 
 import java.util.List;
+
+import com.wheeler.employee.models.Ability;
+import com.wheeler.employee.repositories.AbilityRepository;
 
 public class AbilityDAOImpl implements AbilityDAO {
 
