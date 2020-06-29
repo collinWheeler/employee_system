@@ -12,44 +12,46 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wheeler.employee.daos.EmployeeDAO;
+import com.wheeler.employee.contracts.EmployeeContract;
 import com.wheeler.employee.models.Employee;
+import com.wheeler.employee.services.EmployeeService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
 public class EmployeeController {
-	@Autowired
-	private EmployeeDAO employeeDAO;
 	
 	private final String BASE_URL="/employee";
 	
+	@Autowired
+	private EmployeeService service;
+	
 	@GetMapping(BASE_URL)
-	public @ResponseBody List<Employee> getAll(){
+	public @ResponseBody List<Employee> getAllEmployees(){
 		log.info("getAll called");
-		return employeeDAO.getAll();
+		return service.getAllEmployees();
 	}
 	
 	@GetMapping(BASE_URL+"/{id}")
 	public @ResponseBody Employee getEmployee(@PathVariable long id) {
 		log.info("getEmployee called "+id);
-		return employeeDAO.get(id);
+		return service.getEmployeeForId(id);
 	}
 	
 	@PostMapping(BASE_URL)
-	public @ResponseBody Employee createEmployee(@RequestBody Employee newEmployee) {
+	public @ResponseBody Employee writeEmployee(@RequestBody EmployeeContract newEmployee) {
 		log.info("createEmployee called");
-		return employeeDAO.create(newEmployee);
+		return service.writeEmployee(newEmployee);
 	}
 	
 	@PutMapping(BASE_URL+"/{id}")
-	public @ResponseBody Employee updateEmployee(@RequestBody Employee employee,@PathVariable long id) {
-		return employeeDAO.update(id, employee);
+	public @ResponseBody Employee updateEmployee(@RequestBody EmployeeContract employee,@PathVariable long id) {
+		return service.updateEmployee(employee, id);
 	}
 	
 	@DeleteMapping(BASE_URL+"/{id}")
 	public void deleteEmployee(@PathVariable long id) {
-		employeeDAO.delete(id);
+		service.deleteEmployee(id);
 	}
 }

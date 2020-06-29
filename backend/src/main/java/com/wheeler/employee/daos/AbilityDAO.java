@@ -7,6 +7,8 @@ import com.wheeler.employee.models.Ability;
 public interface AbilityDAO {
 	public Ability get(long id);
 	
+	public List<Ability> getAllFor(List<Long> ids);
+	
 	public List<Ability> getAll();
 	
 	public Ability create(Ability ability);

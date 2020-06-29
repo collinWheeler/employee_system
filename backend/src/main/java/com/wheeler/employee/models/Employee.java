@@ -39,17 +39,12 @@ public class Employee {
 	private String employeeId;
 	private String title;
 	
-	@ManyToMany(cascade=CascadeType.MERGE,fetch=FetchType.LAZY
-	)
+	@ManyToMany
 	@JoinTable(name="EMPLOYEE_ABILITY")
-	
-	//@JsonIgnoreProperties("employees")
-	//@JsonManagedReference(("employee-ability"))
-	private Set<Ability> abilities=new HashSet<>();
+	private Set<Ability> abilities;
 	
 	@ManyToOne
 	private Employee superior;
-	
 	
 		
 	public void setName(String name) {

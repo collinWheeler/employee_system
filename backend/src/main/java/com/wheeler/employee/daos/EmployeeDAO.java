@@ -13,7 +13,7 @@ public interface EmployeeDAO {
 	
 	public void delete(Long id);
 	
-	public Employee update(Long id,Employee employee);
+	public Employee update(Employee employee);
 	
 	public int count();
 	
