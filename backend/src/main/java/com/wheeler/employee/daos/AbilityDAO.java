@@ -15,7 +15,7 @@ public interface AbilityDAO {
 	
 	public Ability update(Ability ability);
 	
-	public void delete(Ability ability);
+	public void delete(long id);
 	
 	public boolean exists(Ability ability);
 	

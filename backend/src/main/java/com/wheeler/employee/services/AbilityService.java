@@ -3,11 +3,13 @@ package com.wheeler.employee.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.wheeler.employee.contracts.AbilityContract;
 import com.wheeler.employee.daos.AbilityDAO;
 import com.wheeler.employee.models.Ability;
 
+@Service
 public class AbilityService {
 
 	@Autowired
@@ -21,7 +23,7 @@ public class AbilityService {
 		return abilityDAO.getAll();
 	}
 	
-	public Ability writeAbility(AbilityContract contract) {
+	public Ability createAbility(AbilityContract contract) {
 		Ability ability = mapAbilityContract(contract);
 		return abilityDAO.create(ability);
 	}
@@ -34,14 +36,11 @@ public class AbilityService {
 	}
 	
 	public void deleteAbility(long id) {
-		Ability ability = abilityDAO.get(id);
-		abilityDAO.delete(ability);
+		abilityDAO.delete(id);
 	}
 	
 	private Ability mapAbilityContract(AbilityContract contract) {
-		Ability ability = new Ability();
-		ability.setDescription(contract.description);
-		return ability;
+		return new Ability(contract.description);
 	}
 	
 }

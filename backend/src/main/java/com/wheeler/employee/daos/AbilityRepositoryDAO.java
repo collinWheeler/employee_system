@@ -30,11 +30,11 @@ public class AbilityRepositoryDAO implements AbilityDAO {
 	}
 
 	public Ability update(Ability ability) {
-		return null;
+		return repository.save(ability);
 	}
 
-	public void delete(Ability ability) {
-		repository.delete(ability);
+	public void delete(long id) {
+		repository.deleteById(id);
 	}
 
 	public boolean exists(Ability ability) {
