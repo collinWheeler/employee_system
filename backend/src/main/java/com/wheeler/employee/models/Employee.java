@@ -18,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.wheeler.employee.models.Ability;
@@ -39,6 +40,7 @@ public class Employee {
 	private String employeeId;
 	private String title;
 	
+	@JsonManagedReference
 	@ManyToMany
 	@JoinTable(name="EMPLOYEE_ABILITY")
 	private Set<Ability> abilities;
@@ -83,12 +85,12 @@ public class Employee {
 		return title;
 	}
 
-	/*@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
-	@JsonIdentityReference(alwaysAsId = true)*/
+	@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+	@JsonIdentityReference(alwaysAsId = true)
 	public Set<Ability> getAbilities() {
 		return abilities;
 	}
-
+	
 	public Employee getSuperior() {
 		return superior;
 	}
