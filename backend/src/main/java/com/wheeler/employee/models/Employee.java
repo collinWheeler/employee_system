@@ -83,8 +83,8 @@ public class Employee {
 		return title;
 	}
 
-	@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
-	@JsonIdentityReference(alwaysAsId = true)
+	/*@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
+	@JsonIdentityReference(alwaysAsId = true)*/
 	public Set<Ability> getAbilities() {
 		return abilities;
 	}
@@ -96,13 +96,6 @@ public class Employee {
 	public void addAbility(Ability ability) {
 		abilities.add(ability);
 	}
-	
-	/*@JsonSetter("")
-	public void setAbilities(long[] abilityIds) {
-		for(long id:abilityIds) {
-			
-		}
-	}*/
 	
 	public void removeAbility(Ability ability) {
 		abilities.remove(ability);
