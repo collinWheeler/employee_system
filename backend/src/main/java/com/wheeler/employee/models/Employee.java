@@ -15,10 +15,12 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.wheeler.employee.models.Ability;
@@ -26,9 +28,6 @@ import com.wheeler.employee.models.Ability;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-/*@Table(uniqueConstraints={
-	    @UniqueConstraint(columnNames = {"name", "employee_id"})
-	})*/
 public class Employee {
 	@Id
 	@GeneratedValue
@@ -38,6 +37,8 @@ public class Employee {
 	@Column(name="employee_id",unique=true)
 	@Length(max=20)
 	private String employeeId;
+	
+	
 	private String title;
 	
 	@JsonManagedReference
