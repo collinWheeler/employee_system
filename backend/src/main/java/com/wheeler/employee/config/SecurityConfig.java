@@ -9,25 +9,27 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.wheeler.employee.controllers.UserController;
+import com.wheeler.employee.services.CustomUserDetailsService;
+
+import lombok.AllArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
-	private final String secureUserName;
-	private final String secureUserPassWord;
-	
-	public SecurityConfig(@Value("${secure.user.username}") String secureUserName, @Value("${secure.user.password}") String secureUserPassWord){
-		this.secureUserName = secureUserName;
-		this.secureUserPassWord = secureUserPassWord;
-	}
+	private final CustomUserDetailsService userDetailsService;
 	
 	@Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
-                .authorizeRequests().anyRequest().authenticated()
+                .authorizeRequests()
+                .antMatchers("POST", UserController.BASE_URL).permitAll()
+                .anyRequest().authenticated()
                 .and().httpBasic();
     }
 
@@ -35,14 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public void configureGlobal(AuthenticationManagerBuilder authentication)
             throws Exception
     {
-        authentication.inMemoryAuthentication()
-                .withUser(secureUserName)
-                .password(passwordEncoder().encode(secureUserPassWord))
-                .authorities("ROLE_USER");
+        authentication.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
     
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 }
