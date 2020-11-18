@@ -42,7 +42,7 @@ public class UserService {
 		if(userName == null) {
 			userName = email;
 		}
-		Optional<AppUser> existingUser = userDAO.getUserByLogin(email, password);
+		Optional<AppUser> existingUser = userDAO.getUserByEmail(email);
 		if(existingUser.isPresent()) {
 			throw new UserAlreadyExistsException("User already exists");
 		}
